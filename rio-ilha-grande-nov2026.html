@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Río de Janeiro + Ilha Grande · 9–18 noviembre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,600;12..96,75..100,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --selva:#0F3D2E;
+  --selva-claro:#1D6B4F;
+  --oceano:#0E5B7A;
+  --oceano-claro:#2C8DB3;
+  --arena:#EFE4D0;
+  --papel:#FBF6EC;
+  --mango:#E07B24;
+  --tinta:#16211D;
+  --piedra:#7D8880;
+  --linea:#D6C8AF;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--arena);
+  color:var(--tinta);
+  font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  font-size:14px;
+  line-height:1.5;
+}
+.hoja{
+  max-width:860px;
+  margin:0 auto;
+  background:var(--papel);
+  box-shadow:0 1px 40px rgba(15,61,46,.18);
+}
+.pad{padding:26px 34px}
+
+/* ---------- tipografía ---------- */
+h1,h2,h3,.dia-num,.big{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-variation-settings:"wdth" 92}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--piedra);
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------- hero ---------- */
+.hero{background:var(--selva);color:var(--papel);padding:30px 34px 0}
+.hero .eyebrow{color:#8FBFA8}
+.hero h1{
+  font-size:clamp(34px,6.4vw,54px);font-weight:800;line-height:.95;
+  margin:10px 0 0;letter-spacing:-.02em;
+}
+.hero h1 em{font-style:normal;color:var(--mango)}
+.fechas{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;
+  color:#B9D6C8;margin-top:12px;
+}
+.hero-datos{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:22px;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+.hero-dato{
+  flex:1 1 150px;padding:12px 16px 16px;
+  border-right:1px solid rgba(255,255,255,.16);
+}
+.hero-dato:last-child{border-right:0}
+.hero-dato .k{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#7FAF98}
+.hero-dato .v{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:17px;margin-top:3px;line-height:1.15}
+.hero-dato .v small{display:block;font-family:"Instrument Sans",sans-serif;font-weight:400;font-size:11px;color:#A8C9B9;margin-top:2px}
+
+/* ---------- timeline: la firma ---------- */
+.timeline-wrap{background:var(--papel);border-bottom:1px solid var(--linea)}
+.tl{display:grid;grid-template-columns:repeat(10,1fr);gap:0;margin-top:14px}
+.tl-dia{
+  border-right:1px solid var(--linea);
+  padding:0 0 10px;position:relative;min-width:0;
+}
+.tl-dia:last-child{border-right:0}
+.tl-barra{height:7px;width:100%}
+.rio .tl-barra{background:var(--oceano)}
+.isla .tl-barra{background:var(--selva-claro)}
+.mar .tl-barra{background:var(--mango)}
+.tl-body{padding:9px 7px 0}
+.dia-num{font-size:19px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.rio .dia-num{color:var(--oceano)}
+.isla .dia-num{color:var(--selva-claro)}
+.mar .dia-num{color:var(--mango)}
+.dia-dow{font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--piedra);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.dia-txt{font-size:10.5px;line-height:1.28;margin-top:7px;color:#3A473F;hyphens:auto}
+.tl-ico{margin-top:8px;display:flex;gap:3px}
+.tl-ico svg{width:15px;height:15px}
+.leyenda{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;align-items:center}
+.lg{display:flex;align-items:center;gap:6px;font-size:11px;color:#46534A}
+.lg i{width:16px;height:7px;display:inline-block;border-radius:1px}
+
+/* ---------- secciones ---------- */
+section{border-bottom:1px solid var(--linea)}
+h2{
+  font-size:22px;font-weight:800;letter-spacing:-.015em;margin:6px 0 0;
+}
+
+/* ---------- mapa ---------- */
+.mapa{background:linear-gradient(180deg,#F7F1E5 0%,#EFE4D0 100%)}
+.mapa svg{width:100%;height:auto;display:block;margin-top:8px}
+
+/* ---------- bloques destino ---------- */
+.destinos{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.dest{padding:24px 30px}
+.dest.a{background:#0E5B7A;color:#EAF4F8}
+.dest.b{background:#0F3D2E;color:#E6F1EB}
+.dest h3{font-size:20px;font-weight:800;margin:8px 0 2px;letter-spacing:-.015em}
+.dest .eyebrow{color:rgba(255,255,255,.62)}
+.dest .noches{font-family:"IBM Plex Mono",monospace;font-size:11px;color:rgba(255,255,255,.72);margin-bottom:14px}
+.dest ul{list-style:none;padding:0;margin:0}
+.dest li{
+  display:flex;gap:9px;align-items:flex-start;
+  padding:7px 0;border-top:1px solid rgba(255,255,255,.15);font-size:12.5px;line-height:1.35;
+}
+.dest li svg{width:15px;height:15px;flex:0 0 15px;margin-top:1px;opacity:.85}
+.dest .nota{margin-top:14px;font-size:11px;line-height:1.4;color:rgba(255,255,255,.66);border-top:1px solid rgba(255,255,255,.15);padding-top:10px}
+
+/* ---------- highlights ---------- */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);margin-top:16px}
+.hl > div{background:var(--papel);padding:14px 15px}
+.hl .n{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--mango);letter-spacing:.1em}
+.hl .t{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:14px;margin-top:5px;line-height:1.18;letter-spacing:-.01em}
+.hl .d{font-size:11px;color:#4E5B53;margin-top:5px;line-height:1.35}
+
+/* ---------- presupuesto ---------- */
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:12.5px}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--piedra);text-align:right;padding:0 0 7px;font-weight:500;border-bottom:1px solid var(--linea);
+}
+th:first-child{text-align:left}
+td{padding:7px 0;border-bottom:1px solid #E9DFCC;text-align:right}
+td:first-child{text-align:left}
+tr:last-child td{border-bottom:0}
+tfoot td{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;
+  border-top:2px solid var(--selva);border-bottom:0;padding-top:10px;color:var(--selva)
+}
+.pill{
+  display:inline-block;background:var(--mango);color:#fff;
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;
+  padding:3px 8px;border-radius:2px;
+}
+.clima{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linea);
+  margin-top:18px;border:1px solid var(--linea);
+}
+.clima div{background:#F7F1E5;padding:11px 13px}
+.clima .k{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--piedra)}
+.clima .v{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:17px;color:var(--selva);margin-top:3px;line-height:1.1}
+.clima .v small{display:block;font-family:"Instrument Sans",sans-serif;font-weight:400;font-size:10.5px;color:#5D6A61;margin-top:2px}
+footer{padding:16px 34px 22px;font-size:10.5px;color:var(--piedra);line-height:1.45}
+
+/* ---------- responsive ---------- */
+@media (max-width:720px){
+  .pad{padding:20px}
+  .hero{padding:24px 20px 0}
+  .tl{grid-template-columns:repeat(5,1fr)}
+  .tl-dia:nth-child(5){border-right:0}
+  .tl-dia:nth-child(-n+5){border-bottom:1px solid var(--linea);padding-bottom:12px;margin-bottom:12px}
+  .destinos{grid-template-columns:1fr}
+  .dest{padding:20px}
+  .hl{grid-template-columns:1fr 1fr}
+  .clima{grid-template-columns:1fr 1fr}
+  footer{padding:16px 20px 22px}
+}
+
+/* ---------- impresión A4 ---------- */
+@page{size:A4 portrait;margin:10mm}
+@media print{
+  html,body{background:#fff}
+  body{font-size:9.5pt}
+  .hoja{box-shadow:none;max-width:none}
+  .pad{padding:12px 0}
+  .hero{padding:16px 14px 0}
+  .tl{grid-template-columns:repeat(10,1fr)}
+  section,.destinos,.hl,.clima,table,.mapa svg{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hl > div{transition:background .18s ease}
+  .hl > div:hover{background:#F7F1E5}
+}
+</style>
+</head>
+<body>
+
+<!-- iconos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-playa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M2 17c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/>
+    <path d="M2 12c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/>
+    <circle cx="18" cy="5.5" r="2.6"/>
+  </symbol>
+  <symbol id="i-trek" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+    <path d="M2 20 9.5 7l4.2 7.2"/><path d="m11.4 20 5.4-9L22 20z"/>
+  </symbol>
+  <symbol id="i-mirador" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M3 20h18"/><path d="M12 20V9"/><path d="M12 9 7.5 4h9z"/><path d="M6 20v-4M18 20v-4"/>
+  </symbol>
+  <symbol id="i-comida" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M5 3v7a2.5 2.5 0 0 0 5 0V3"/><path d="M7.5 10v11"/>
+    <path d="M17.5 21V3c-2 .8-3 2.6-3 5.5s1 4 3 4.2"/>
+  </symbol>
+  <symbol id="i-barco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 18c1.6 0 1.6 1.6 3.2 1.6S7.8 18 9.4 18s1.6 1.6 3.2 1.6S14.2 18 15.8 18s1.6 1.6 3.2 1.6"/>
+    <path d="M4.5 15 6 10h12l1.5 5"/><path d="M12 10V4l4.5 3-4.5 1.5"/>
+  </symbol>
+  <symbol id="i-avion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.5 13.5 21 5l-4.5 9.5-3.5.8-2.2 4.7-1.6-4-4-1.6z"/>
+  </symbol>
+  <symbol id="i-noche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 14.5A8.2 8.2 0 0 1 9.5 4 8.4 8.4 0 1 0 20 14.5"/>
+  </symbol>
+</svg>
+
+<main class="hoja">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">Buenos Aires · 10 días · 4 adultos · sin auto</div>
+    <h1>Río de Janeiro<br><em>+</em> Ilha Grande</h1>
+    <div class="fechas">LUN 09 NOV → MIÉ 18 NOV 2026 · 9 noches</div>
+    <div class="hero-datos">
+      <div class="hero-dato"><div class="k">Presupuesto</div><div class="v">USD 1.020–1.345<small>por persona, sin vuelos</small></div></div>
+      <div class="hero-dato"><div class="k">Reparto</div><div class="v">6 Río / 3 Isla<small>noches</small></div></div>
+      <div class="hero-dato"><div class="k">Clima</div><div class="v">21–29 °C<small>lluvia de tarde, mar 23 °C</small></div></div>
+      <div class="hero-dato"><div class="k">Cambio</div><div class="v">USD 1 = R$ 5,15<small>agosto 2026</small></div></div>
+    </div>
+  </header>
+
+  <!-- TIMELINE -->
+  <section class="timeline-wrap pad">
+    <div class="eyebrow">Los diez días</div>
+    <h2>Río al principio, isla al medio, Río otra vez</h2>
+    <div class="tl">
+      <div class="tl-dia rio"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">09</div><div class="dia-dow">lun</div>
+        <div class="dia-txt">Llegada. Copacabana y atardecer en Arpoador.</div>
+        <div class="tl-ico"><svg><use href="#i-avion"/></svg><svg><use href="#i-playa"/></svg></div>
+      </div></div>
+      <div class="tl-dia rio"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">10</div><div class="dia-dow">mar</div>
+        <div class="dia-txt">Centro, Santa Teresa, escalera Selarón, Lapa.</div>
+        <div class="tl-ico"><svg><use href="#i-comida"/></svg><svg><use href="#i-noche"/></svg></div>
+      </div></div>
+      <div class="tl-dia mar"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">11</div><div class="dia-dow">mié</div>
+        <div class="dia-txt">Van 08:00 → Conceição → flex a Abraão.</div>
+        <div class="tl-ico"><svg><use href="#i-barco"/></svg></div>
+      </div></div>
+      <div class="tl-dia isla"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">12</div><div class="dia-dow">jue</div>
+        <div class="dia-txt">Lopes Mendes: taxi boat + trilha T11.</div>
+        <div class="tl-ico"><svg><use href="#i-playa"/></svg><svg><use href="#i-trek"/></svg></div>
+      </div></div>
+      <div class="tl-dia isla"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">13</div><div class="dia-dow">vie</div>
+        <div class="dia-txt">Volta à ilha en lancha o trilha a Dois Rios.</div>
+        <div class="tl-ico"><svg><use href="#i-barco"/></svg><svg><use href="#i-trek"/></svg></div>
+      </div></div>
+      <div class="tl-dia mar"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">14</div><div class="dia-dow">sáb</div>
+        <div class="dia-txt">Barco 11:00 a Río. De noche, samba en Lapa.</div>
+        <div class="tl-ico"><svg><use href="#i-barco"/></svg><svg><use href="#i-noche"/></svg></div>
+      </div></div>
+      <div class="tl-dia rio"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">15</div><div class="dia-dow">dom</div>
+        <div class="dia-txt">Ipanema, feria hippie, Aterro sin autos.</div>
+        <div class="tl-ico"><svg><use href="#i-playa"/></svg></div>
+      </div></div>
+      <div class="tl-dia rio"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">16</div><div class="dia-dow">lun</div>
+        <div class="dia-txt">Cristo Redentor 08:00, Parque Lage, Jardim Botânico.</div>
+        <div class="tl-ico"><svg><use href="#i-mirador"/></svg></div>
+      </div></div>
+      <div class="tl-dia rio"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">17</div><div class="dia-dow">mar</div>
+        <div class="dia-txt">Morro Dois Irmãos temprano; Pão de Açúcar al atardecer.</div>
+        <div class="tl-ico"><svg><use href="#i-trek"/></svg><svg><use href="#i-mirador"/></svg></div>
+      </div></div>
+      <div class="tl-dia rio"><div class="tl-barra"></div><div class="tl-body">
+        <div class="dia-num">18</div><div class="dia-dow">mié</div>
+        <div class="dia-txt">Última playa, feijoada y vuelo de noche.</div>
+        <div class="tl-ico"><svg><use href="#i-comida"/></svg><svg><use href="#i-avion"/></svg></div>
+      </div></div>
+    </div>
+    <div class="leyenda">
+      <span class="lg"><i style="background:#0E5B7A"></i> Río de Janeiro</span>
+      <span class="lg"><i style="background:#1D6B4F"></i> Ilha Grande</span>
+      <span class="lg"><i style="background:#E07B24"></i> Día de traslado</span>
+      <span class="lg" style="margin-left:auto"><svg width="15" height="15" style="color:#0F3D2E"><use href="#i-playa"/></svg> playa
+        <svg width="15" height="15" style="color:#0F3D2E;margin-left:8px"><use href="#i-trek"/></svg> trekking
+        <svg width="15" height="15" style="color:#0F3D2E;margin-left:8px"><use href="#i-mirador"/></svg> mirador
+        <svg width="15" height="15" style="color:#0F3D2E;margin-left:8px"><use href="#i-comida"/></svg> comida
+        <svg width="15" height="15" style="color:#0F3D2E;margin-left:8px"><use href="#i-barco"/></svg> barco</span>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section class="mapa pad">
+    <div class="eyebrow">Logística · esquemático, no a escala</div>
+    <h2>Cómo se llega y cuánto tarda</h2>
+    <svg viewBox="0 0 800 300" role="img" aria-label="Mapa esquemático: Río de Janeiro, Conceição de Jacareí, Angra dos Reis e Ilha Grande, con los traslados entre ellos.">
+      <defs>
+        <marker id="flecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 10 5 0 10z" fill="#E07B24"/>
+        </marker>
+        <marker id="flechaV" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0 10 5 0 10z" fill="#0E5B7A"/>
+        </marker>
+      </defs>
+
+      <!-- mar -->
+      <rect x="0" y="0" width="800" height="300" fill="#CFE3EA"/>
+      <!-- continente -->
+      <path d="M0 0 H800 V96 C700 104 640 122 560 138 C470 156 390 150 300 132 C210 114 120 118 0 150 Z" fill="#DCE9CF"/>
+      <path d="M0 150 C120 118 210 114 300 132 C390 150 470 156 560 138 C640 122 700 104 800 96"
+            fill="none" stroke="#96AF84" stroke-width="2"/>
+      <!-- Ilha Grande -->
+      <path d="M188 214 C232 190 300 188 348 202 C392 214 400 240 372 258 C330 284 246 286 204 268 C176 256 168 228 188 214 Z"
+            fill="#1D6B4F"/>
+      <path d="M232 226 c14-8 30-6 38 4 M296 220 c16-4 30 2 34 12" fill="none" stroke="#4E9877" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- ruta van -->
+      <path d="M652 92 C520 60 400 62 306 108" fill="none" stroke="#E07B24" stroke-width="3.5"
+            stroke-dasharray="9 7" stroke-linecap="round" marker-end="url(#flecha)"/>
+      <!-- ruta barco -->
+      <path d="M294 128 C280 158 276 178 282 200" fill="none" stroke="#0E5B7A" stroke-width="3.5"
+            stroke-dasharray="3 7" stroke-linecap="round" marker-end="url(#flechaV)"/>
+      <!-- alternativa Angra -->
+      <path d="M430 148 C398 176 362 194 344 206" fill="none" stroke="#0E5B7A" stroke-width="2"
+            stroke-dasharray="3 7" stroke-linecap="round" opacity=".55"/>
+
+      <!-- puntos -->
+      <circle cx="660" cy="88" r="9" fill="#0F3D2E"/>
+      <circle cx="298" cy="118" r="7" fill="#0F3D2E"/>
+      <circle cx="436" cy="142" r="6" fill="#0F3D2E" opacity=".55"/>
+      <circle cx="286" cy="212" r="7" fill="#F3EBDB" stroke="#0F3D2E" stroke-width="3"/>
+
+      <g font-family="Bricolage Grotesque, sans-serif" fill="#0F3D2E">
+        <text x="660" y="66" font-size="21" font-weight="800" text-anchor="middle">RÍO DE JANEIRO</text>
+        <text x="298" y="98" font-size="15" font-weight="600" text-anchor="middle">Conceição de Jacareí</text>
+        <text x="470" y="132" font-size="13" font-weight="600" opacity=".6">Angra dos Reis</text>
+        <text x="286" y="244" font-size="19" font-weight="800" text-anchor="middle" fill="#F3EBDB">ILHA GRANDE</text>
+        <text x="286" y="262" font-size="12" font-weight="600" text-anchor="middle" fill="#A7D3BE">Vila do Abraão</text>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#8A5A1E">
+        <text x="480" y="52" text-anchor="middle">VAN · 150 km · 2 h 30</text>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#0E5B7A">
+        <text x="196" y="170">FLEX · 12 km</text>
+        <text x="196" y="185">20–25 min</text>
+        <text x="452" y="184" opacity=".6">alt.: 21 km · 30–60 min</text>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#4E5B53">
+        <text x="640" y="118">GIG · SDU</text>
+      </g>
+    </svg>
+  </section>
+
+  <!-- DESTINOS -->
+  <section class="destinos">
+    <div class="dest a">
+      <div class="eyebrow">6 noches · Ipanema o Copacabana Posto 5</div>
+      <h3>Río de Janeiro</h3>
+      <div class="noches">09–11 nov · 14–18 nov</div>
+      <ul>
+        <li><svg><use href="#i-mirador"/></svg><span><b>Cristo Redentor</b> — tren desde Cosme Velho, R$134. Entrada con día y hora, comprar con una semana.</span></li>
+        <li><svg><use href="#i-mirador"/></svg><span><b>Pão de Açúcar</b> — R$199–205 para extranjeros. Subir 17:00 y bajar de noche.</span></li>
+        <li><svg><use href="#i-trek"/></svg><span><b>Morro Dois Irmãos</b> — 1 h 15 de subida desde Vidigal, la mejor vista gratis de la ciudad.</span></li>
+        <li><svg><use href="#i-playa"/></svg><span><b>Ipanema Posto 9 y Arpoador</b> — silla y sombrilla R$25–40 el día.</span></li>
+        <li><svg><use href="#i-noche"/></svg><span><b>Lapa el sábado</b> — Rio Scenarium, Carioca da Gema. Uber puerta a puerta.</span></li>
+        <li><svg><use href="#i-comida"/></svg><span><b>Comer</b> — por quilo al mediodía, botecos en Humaitá, feijoada del sábado.</span></li>
+      </ul>
+      <div class="nota">Traslados en Uber dentro de Zona Sul: 15–30 min, R$25–55. El metrô L1 conecta Ipanema con el Centro en 20 minutos.</div>
+    </div>
+    <div class="dest b">
+      <div class="eyebrow">3 noches · pousada en Vila do Abraão</div>
+      <h3>Ilha Grande</h3>
+      <div class="noches">11–14 nov · sin autos en la isla</div>
+      <ul>
+        <li><svg><use href="#i-playa"/></svg><span><b>Lopes Mendes</b> — taxi boat a Praia do Pouso (~R$30–50 por tramo) y 25 min de trilha T11.</span></li>
+        <li><svg><use href="#i-barco"/></svg><span><b>Volta à ilha o Lagoa Azul</b> — lancha o escuna, R$120–180, con snorkel incluido.</span></li>
+        <li><svg><use href="#i-trek"/></svg><span><b>Dois Rios</b> — trilha T14, 8,2 km por lado, 2 h 40. Día completo, alternativa al barco.</span></li>
+        <li><svg><use href="#i-playa"/></svg><span><b>Praia Preta y Abraãozinho</b> — 20–40 min a pie desde el pueblo, sin barco.</span></li>
+        <li><svg><use href="#i-comida"/></svg><span><b>Abraão de noche</b> — mesas en la arena, camarón y caipirinha. Cierra temprano.</span></li>
+      </ul>
+      <div class="nota">No hay cajeros ni banco en la isla: llevar efectivo desde Río. Se suma la Taxa de Turismo Sustentável de Angra, vigente desde junio de 2026.</div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="pad">
+    <div class="eyebrow">Si sale mal el clima y hay que recortar</div>
+    <h2>Los seis que no se negocian</h2>
+    <div class="hl">
+      <div><div class="n">01</div><div class="t">Lopes Mendes</div><div class="d">Tres kilómetros de arena blanca sin un solo kiosco. Llevar agua y comida.</div></div>
+      <div><div class="n">02</div><div class="t">Cristo a las 8 de la mañana</div><div class="d">Antes de que suba la nube y antes de los micros. Hay obras: 80 escalones finales a pie.</div></div>
+      <div><div class="n">03</div><div class="t">Pão de Açúcar al atardecer</div><div class="d">Subir con luz, bajar con la ciudad prendida. Es el mejor gasto del viaje.</div></div>
+      <div><div class="n">04</div><div class="t">Morro Dois Irmãos</div><div class="d">Ipanema, Leblon y la Lagoa de una sola mirada. Salir 6:30 para evitar el calor.</div></div>
+      <div><div class="n">05</div><div class="t">Samba en Lapa</div><div class="d">Sábado 14, después de volver de la isla. Entrada R$40–70 según la casa.</div></div>
+      <div><div class="n">06</div><div class="t">Volta à ilha en lancha</div><div class="d">Lagoa Azul, Japariz, Freguesia de Santana. Seis horas de paradas para nadar.</div></div>
+    </div>
+  </section>
+
+  <!-- PRESUPUESTO -->
+  <section class="pad">
+    <div class="eyebrow">Por persona · 10 días · sin vuelos internacionales</div>
+    <h2>Presupuesto <span class="pill">USD 1 = R$ 5,15</span></h2>
+    <table>
+      <thead><tr><th>Rubro</th><th>BRL</th><th>USD</th></tr></thead>
+      <tbody>
+        <tr><td>Alojamiento — 9 noches, cuartos compartidos de a dos</td><td class="mono">1.700–2.100</td><td class="mono">330–408</td></tr>
+        <tr><td>Comida y bebida — desayuno incluido, almuerzo por quilo</td><td class="mono">1.600–2.100</td><td class="mono">311–408</td></tr>
+        <tr><td>Transporte dentro de Río — Uber, metrô, VLT</td><td class="mono">350–500</td><td class="mono">68–97</td></tr>
+        <tr><td>Río ↔ Ilha Grande — transfer y flex boat, ida y vuelta</td><td class="mono">420–560</td><td class="mono">82–109</td></tr>
+        <tr><td>Entradas — Cristo, Pão de Açúcar, museos</td><td class="mono">400–550</td><td class="mono">78–107</td></tr>
+        <tr><td>Paseos en la isla + tasa de turismo de Angra</td><td class="mono">300–420</td><td class="mono">58–82</td></tr>
+        <tr><td>Extras — eSIM, propinas, colchón para imprevistos</td><td class="mono">500–700</td><td class="mono">97–136</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total por persona</td><td class="mono">R$ 5.270–6.930</td><td class="mono">USD 1.020–1.345</td></tr></tfoot>
+    </table>
+
+    <div class="clima">
+      <div><div class="k">Temperatura</div><div class="v">21 → 29 °C<small>noches cálidas</small></div></div>
+      <div><div class="k">Mar</div><div class="v">22–23 °C<small>se banca todo el día</small></div></div>
+      <div><div class="k">Lluvia</div><div class="v">12–17 días<small>pancadas de tarde, cortas</small></div></div>
+      <div><div class="k">Sol</div><div class="v">05:00 → 18:15<small>índice UV 8, protector sí o sí</small></div></div>
+    </div>
+  </section>
+
+  <footer>
+    Precios de entradas verificados en agosto de 2026 en las webs oficiales del Trem do Corcovado y del Parque Bondinho; tarifas de transporte, alojamiento y paseos son estimaciones de mercado y cambian según temporada y demanda.
+    El domingo 15 de noviembre es feriado nacional en Brasil (Proclamação da República) y el viernes 20 también (Consciência Negra), ya fuera del viaje: conviene volver a Buenos Aires el 18.
+  </footer>
+
+</main>
+</body>
+</html>
